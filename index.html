@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Skrining Kesehatan Online</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>Skrining Kesehatan Mandiri</h1>
+    <p>Akses cepat dan mudah untuk memantau kondisi kesehatan Anda</p>
+  </header>
+
+  <main>
+    <form id="screeningForm">
+      <h2>Form Skrining Kesehatan</h2>
+
+      <label>1. Apakah Anda sering merasa pusing?</label><br>
+      <input type="radio" name="q1" value="yes"> Ya
+      <input type="radio" name="q1" value="no"> Tidak<br><br>
+
+      <label>2. Apakah Anda memiliki riwayat tekanan darah tinggi?</label><br>
+      <input type="radio" name="q2" value="yes"> Ya
+      <input type="radio" name="q2" value="no"> Tidak<br><br>
+
+      <label>3. Apakah Anda sering buang air kecil di malam hari?</label><br>
+      <input type="radio" name="q3" value="yes"> Ya
+      <input type="radio" name="q3" value="no"> Tidak<br><br>
+
+      <label>4. Apakah Anda memiliki riwayat gula darah tinggi?</label><br>
+      <input type="radio" name="q4" value="yes"> Ya
+      <input type="radio" name="q4" value="no"> Tidak<br><br>
+
+      <label>5. Apakah Anda jarang berolahraga (kurang dari 2x/minggu)?</label><br>
+      <input type="radio" name="q5" value="yes"> Ya
+      <input type="radio" name="q5" value="no"> Tidak<br><br>
+
+      <button type="button" onclick="checkResult()">Lihat Hasil Skrining</button>
+    </form>
+
+    <div id="result" class="result-box"></div>
+
+    <div class="konsultasi">
+      <h3>Butuh Konsultasi?</h3>
+      <p>Klik tombol di bawah ini untuk terhubung langsung via WhatsApp.</p>
+      <a href="https://wa.me/6281234567890" class="wa-button" target="_blank">Konsultasi Sekarang</a>
+    </div>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Ridho Nugroho | Skrining Kesehatan Digital</p>
+  </footer>
+
+  <script>
+    function checkResult() {
+      const pertanyaan = ['q1', 'q2', 'q3', 'q4', 'q5'];
+      let skor = 0;
+
+      for (let i = 0; i < pertanyaan.length; i++) {
+        const jawab = document.querySelector(`input[name="${pertanyaan[i]}"]:checked`);
+        if (!jawab) {
+          document.getElementById('result').innerHTML = "<p style='color:red;'>Silakan jawab semua pertanyaan terlebih dahulu.</p>";
+          return;
+        }
+        if (jawab.value === "yes") skor++;
+      }
+
+      let pesan = "";
+      if (skor === 0) {
+        pesan = "Kesehatan Anda dalam kondisi baik. Terus pertahankan gaya hidup sehat!";
+      } else if (skor <= 2) {
+        pesan = "Anda memiliki beberapa gejala ringan. Disarankan mulai gaya hidup sehat dan lakukan pemantauan rutin.";
+      } else if (skor <= 4) {
+        pesan = "Anda memiliki risiko sedang. Silakan konsultasi lebih lanjut dengan tenaga kesehatan.";
+      } else {
+        pesan = "Anda berisiko tinggi mengalami gangguan kesehatan. Segera konsultasi atau periksa ke fasilitas layanan kesehatan.";
+      }
+
+      document.getElementById('result').innerHTML = `<h3>Hasil Skrining:</h3><p>${pesan}</p>`;
+    }
+  </script>
+</body>
+</html>
