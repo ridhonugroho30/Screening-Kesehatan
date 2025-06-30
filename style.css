@@ -1,0 +1,78 @@
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #eaf4f4;
+  margin: 0;
+  padding: 0;
+  color: #333;
+}
+
+header {
+  background-color: #0096c7;
+  color: white;
+  padding: 20px;
+  text-align: center;
+}
+
+main {
+  max-width: 700px;
+  margin: auto;
+  padding: 20px;
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  margin-top: 20px;
+}
+
+form h2 {
+  margin-top: 0;
+  color: #0077b6;
+}
+
+button {
+  background-color: #0077b6;
+  color: white;
+  border: none;
+  padding: 12px 20px;
+  font-size: 16px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #023e8a;
+}
+
+.result-box {
+  margin-top: 20px;
+  padding: 15px;
+  background-color: #e0f7fa;
+  border-left: 5px solid #00b4d8;
+  border-radius: 5px;
+}
+
+.konsultasi {
+  margin-top: 30px;
+  text-align: center;
+}
+
+.wa-button {
+  display: inline-block;
+  background-color: #25D366;
+  color: white;
+  padding: 12px 20px;
+  border-radius: 5px;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.wa-button:hover {
+  background-color: #1ebe57;
+}
+
+footer {
+  margin-top: 40px;
+  text-align: center;
+  padding: 10px;
+  background-color: #0096c7;
+  color: white;
+}
